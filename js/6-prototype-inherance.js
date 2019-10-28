@@ -23,10 +23,8 @@ function Chando(nombre) {
 
     this.apruebaDeTodo = true;
 }
-
+Perro.prototype = Object.create(Animal.prototype);
 Chando.prototype = Object.create(Perro.prototype);
-// falla
-Object.assign(Chando.prototype, Animal.prototype);
 Chando.prototype.constructor = Chando;
 
 const perro = new Chando('firulais');
@@ -38,15 +36,4 @@ console.log(perro.apruebaDeTodo);
 
 console.log(perro instanceof Perro);
 console.log(perro instanceof Animal);
-console.log(perro instanceof Chando);
-
-// Principios SOLID.
-
-// ES6 - transpilarlo a ES5
-class Chando extends Perro, Animal {
-
-}
-
-// Angular: class-based components (typescript)
-
-// Loopback: (backend - typescript) */
+console.log(perro instanceof Chando); */
